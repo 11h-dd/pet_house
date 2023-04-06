@@ -1,0 +1,6 @@
+.form {
+ @apply mt-20
+}
+.button {
+ @apply mt-10 w-full
+}

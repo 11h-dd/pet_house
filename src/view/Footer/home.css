@@ -1,0 +1,12 @@
+.footer {
+    @apply w-full h-80 bg-stone-900 border-none bg-bottom
+    
+}
+.footer_item {
+    @apply  h-60 flex w-1/2  justify-between text-amber-50
+
+
+}
+.item {
+    @apply w-20
+}

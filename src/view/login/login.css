@@ -1,0 +1,46 @@
+.boog {
+    @apply h-full w-full bg-gradient-to-r from-purple-500 to-pink-500 absolute flex justify-center
+    items-center
+}
+
+.login_box {
+    @apply w-7/12 h-min min-h-[70%]  rounded-2xl flex justify-between
+}
+
+.box_left .box_right {
+    @apply h-full
+}
+
+.box_left {
+    @apply rounded-l-2xl
+    bg-dog-patten  bg-no-repeat
+    bg-contain
+    bg-bottom
+    bg-[#f6f6f6]
+    text-center
+    text-zinc-950
+    font-mono
+}
+.box_left h1 {
+  @apply   text-4xl
+}
+.box_left_top {
+    @apply flex justify-center items-center flex-col
+    pt-3
+}
+.box_left p {
+    @apply mt-5
+}
+
+.box_right {
+    @apply bg-[#ffffff]  rounded-r-2xl flex justify-center
+    items-center
+}
+
+.box_left_top_image {
+    @apply w-40 h-28
+}
+.login{
+    @apply w-[400px] h-[400px]  rounded-2xl
+
+}
