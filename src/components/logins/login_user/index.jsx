@@ -1,13 +1,13 @@
 import React from 'react';
 import "./index.css"
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
-import {Button, Form, Input, message} from 'antd';
+import {Button, Form, Input} from 'antd';
 import {Link} from "react-router-dom";
 import service from "../../../requests/request";
 import {useDispatch} from "react-redux";
 import {SetToken} from "../../../store/features/UserSlice";
 import {useNavigate} from "react-router-dom";
-import {Message} from "../../../urils/MessageGlobal";
+import {Message} from "../../../utils/MessageGlobal";
 
 const LoginUser = (props) => {
     const navigate = useNavigate()
@@ -22,7 +22,10 @@ const LoginUser = (props) => {
             })
             //将token保存起来
             dispatch(SetToken(response.data.token))
-            message.success("登录成功", 0.5, () => {
+            // message.success("登录成功", 0.5, () => {
+            //     navigate("/", {replace: true})
+            // })
+            Message("success","登录成功",0.5,() => {
                 navigate("/", {replace: true})
             })
         } catch (error) {

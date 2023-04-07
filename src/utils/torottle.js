@@ -2,10 +2,10 @@
 //一段时间只执行一次 节流
 export function throttle(fn) {
     var flag = true;
-    return function(content,timers,fns) {
+    return function() {
         if (flag) {
             setTimeout(() => {
-                fn(content,timers,fns)
+                fn()
                 flag = true;
             }, 2000);
         }
