@@ -5,14 +5,17 @@ import "./reset.css"
 import App from './App';
 import {RouterProvider} from "react-router-dom"
 import {router} from "./router";
+import AppStoreProvider from "./AppStoreProvider";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-      <RouterProvider router={router}>
-          <App></App>
-      </RouterProvider>
-  </React.StrictMode>
-);
+root.render(<React.StrictMode>
+    <AppStoreProvider>
+        <RouterProvider router={router}>
+            <App></App>
+        </RouterProvider>
+    </AppStoreProvider>
+
+</React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,30 +1,21 @@
-import axios from "axios";
-//单例属性请求
-export default class AxiosPet {
-    static _instance = undefined;
-    static myAxios;
+import axios from "axios"
+import {store} from "../store";
 
-    static constructor(props) {
-        AxiosPet.myAxios = axios.create({baseURL: "http://192.168.229.129:10001/"})
-        //请求拦截器
-        AxiosPet.myAxios.interceptors.request.use(config => {
-            const token = ""
-            if (toekn) config.headers = `Authorization:${token}`
-            return config
-        }, err => {
-            return err
-        })
-        AxiosPet.myAxios.interceptors.response.use((response) => {
-            return response.data
-        })
-        // 响应拦截器
+const service = axios.create({
+    baseURL: "http://192.168.229.129:10001/"
+})
+// 请求拦截
+service.interceptors.request.use(config => {
+    const state = store.getState()
+    if (state.userConfigSlice.token) config.headers.Authorization = state.userConfigSlice.token
+    return config;
+})
+
+// 响应拦截
+service.interceptors.response.use(res => {
+    if (res.data.status === 200) {
+        return res.data
     }
-
-    get Instantiation() {
-        if (typeof AxiosPet._instance === "undefined") {
-            AxiosPet._instance = new AxiosPet
-        }
-        return AxiosPet._instance
-    }
-
-}
+    return Promise.reject(res.data)
+})
+export default service
