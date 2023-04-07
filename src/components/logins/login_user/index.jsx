@@ -1,7 +1,7 @@
 import React from 'react';
 import "./index.css"
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
-import {Button, Form, Input} from 'antd';
+import {Button, Form, Input, message} from 'antd';
 import {Link} from "react-router-dom";
 import service from "../../../requests/request";
 import {useDispatch} from "react-redux";
@@ -11,7 +11,6 @@ import {Message} from "../../../utils/MessageGlobal";
 
 const LoginUser = (props) => {
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
     const onFinish = async (values) => {
         try {
@@ -22,15 +21,11 @@ const LoginUser = (props) => {
             })
             //将token保存起来
             dispatch(SetToken(response.data.token))
-            // message.success("登录成功", 0.5, () => {
-            //     navigate("/", {replace: true})
-            // })
-            Message("success","登录成功",0.5,() => {
+            message.success("登录成功", 0.5, () => {
                 navigate("/", {replace: true})
             })
         } catch (error) {
             Message("error",error.msg,0.5)
-            // message["error"](error.msg)
         }
 
     };
@@ -54,6 +49,7 @@ const LoginUser = (props) => {
         </Form.Item>
         <Form.Item
             name="password"
+
             rules={[{
                 required: true, message: '请输入密码',
             },]}
@@ -65,6 +61,9 @@ const LoginUser = (props) => {
                 label="Password"
                 className="h-12"
             />
+        </Form.Item>
+        <Form.Item className={"float-left pr-2"}>
+            <Link className={"text-[#858585] hover:text-[#222222]"}>没有账号?去注册</Link>
         </Form.Item>
         <Form.Item className={"float-right pr-2"}>
             <Link className="login-form-forgot text-orange-800" href="">

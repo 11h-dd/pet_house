@@ -1,0 +1,9 @@
+.form {
+    @apply mt-20
+}
+.button {
+    @apply mt-10 w-full
+}
+.capcahe {
+    @apply h-[3rem] w-[3rem] bg-amber-950
+}

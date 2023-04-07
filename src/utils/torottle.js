@@ -1,13 +1,13 @@
 //节流
 //一段时间只执行一次 节流
-export function throttle(fn) {
+export function throttle(fn,tim) {
     var flag = true;
-    return function() {
+    return function(content,timers) {
         if (flag) {
             setTimeout(() => {
-                fn()
+                fn(content,timers)
                 flag = true;
-            }, 2000);
+            }, tim);
         }
         flag = false;
     }

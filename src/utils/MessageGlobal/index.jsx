@@ -2,7 +2,6 @@
 import {message} from "antd";
 import {throttle} from "../torottle";
 
-export const Message = throttle((state, content, timers = 1, fns = () => {
-}) => {
-    message[state](content, timers, fns)
-})
+export const Message = throttle((state, content) => {
+    message[state](content)
+},1000)

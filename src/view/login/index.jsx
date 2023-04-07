@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./login.css"
 import ani from "../../assets/images/Animal.png"
 import LoginUser from "../../components/logins/login_user";
+import LoginPhone from "../../components/logins/login_phone";
 
 const Login = (props) => {
   const [active,UseActive] = useState("User")
@@ -15,6 +16,12 @@ const Login = (props) => {
             UseActive("Phone")
             return
         }
+    }
+    const toggle = () => {
+      if(active === "User"){
+            return  <LoginUser></LoginUser>
+      }
+      return <LoginPhone></LoginPhone>
     }
     return (<div className={"boog"}>
         <div className={"login_box"}>
@@ -33,7 +40,7 @@ const Login = (props) => {
                     &nbsp;  &nbsp;
                     <h1 onClick={taggleAction} className={active === "Phone" ? "underline decoration-4 text-orange-800 underline-offset-8":""} >手机登录</h1>
                 </div>
-                    <LoginUser></LoginUser>
+                    {toggle()}
                 </div>
                 <div></div>
             </div>
