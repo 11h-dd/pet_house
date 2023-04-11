@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./index.css"
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
 import {Button, Form, Input, message} from 'antd';
@@ -8,10 +8,25 @@ import {useDispatch} from "react-redux";
 import {SetToken} from "../../../store/features/UserSlice";
 import {useNavigate} from "react-router-dom";
 import {Message} from "../../../utils/MessageGlobal";
+import Register from "../../register";
+import * as PropTypes from "prop-types";
+
+function Routes(props) {
+    return null;
+}
+
+Routes.propTypes = {
+    path: PropTypes.string, element: PropTypes.element
+};
+
+function Outlet() {
+    return null;
+}
 
 const LoginUser = (props) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [open, SetOpen] = useState(false)
     const onFinish = async (values) => {
         try {
             const response = await service({
@@ -20,23 +35,34 @@ const LoginUser = (props) => {
                 }
             })
             //将token保存起来
-            dispatch(SetToken(response.data.token))
-            message.success("登录成功", 0.5, () => {
-                navigate("/", {replace: true})
-            })
+            if (response.status === 200) {
+                dispatch(SetToken(response.data.token))
+                message.success("登录成功", 0.5, () => {
+                    navigate("/", {replace: true})
+                })
+            }
         } catch (error) {
-            Message("error",error.msg,0.5)
+            Message("error", error.msg, 0.5)
         }
 
     };
+    const showDrawer = () => {
+        SetOpen(true);
+    };
+    const onClose = () => {
+        SetOpen(false);
+    };
     return (<Form
         name="normal_login"
-        className="login-form form"
+        className="login-form form "
         initialValues={{
             remember: true,
         }}
         onFinish={onFinish}
     >
+        <Outlet/>
+        {/*<Routes path="/register" element={<Register open={open} onClose={onClose} />} />*/}
+        <Register open={open} onClose={onClose}/>
         <Form.Item
             name="username"
             rules={[{
@@ -44,8 +70,8 @@ const LoginUser = (props) => {
             },]}
         >
             <Input prefix={<UserOutlined className="site-form-item-icon"/>} placeholder="用户名手机号" className="h-12"
-
             />
+
         </Form.Item>
         <Form.Item
             name="password"
@@ -63,14 +89,18 @@ const LoginUser = (props) => {
             />
         </Form.Item>
         <Form.Item className={"float-left pr-2"}>
-            <Link className={"text-[#858585] hover:text-[#222222]"}>没有账号?去注册</Link>
-        </Form.Item>
-        <Form.Item className={"float-right pr-2"}>
-            <Link className="login-form-forgot text-orange-800" href="">
-                忘记密码?
+            <Link className={"text-[#5260d7] hover:text-[#222222]"}><span onClick={showDrawer}>没有账号?去注册
+            </span>
+
             </Link>
         </Form.Item>
 
+
+        <Form.Item className={"float-right pr-2"}>
+            <Link className="login-form-forgot text-[#5260d7] hover:text-[#222222]" href="">
+                忘记密码?
+            </Link>
+        </Form.Item>
         <Form.Item className={"flex justify-center w-full"}>
             <Button
                 type="primary" ghost htmlType="submit" className="login-form-button"
@@ -78,6 +108,7 @@ const LoginUser = (props) => {
                 登录
             </Button>
         </Form.Item>
+
     </Form>);
 };
 

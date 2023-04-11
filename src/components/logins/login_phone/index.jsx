@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {
-    Button, Form, Input, Row, Col,message
+    Button, Form, Input, Row, Col, message
 } from 'antd';
 import "./index.module.css"
 import service from "../../../requests/request";
 import {SetToken} from "../../../store/features/UserSlice";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-// import service from "../../../requests/request";
 
 const LoginPhone = (props) => {
     const dispatch = useDispatch()
@@ -19,7 +18,7 @@ const LoginPhone = (props) => {
     //发送验证码
     const sendSms = async (e) => {
         if (isClick.isClick) {
-            const {user_phone, smsCode} = form.getFieldValue()
+            const {user_phone} = form.getFieldValue()
             if (!user_phone) {
                 message.warning("手机号没有填写", 0.5)
                 return
@@ -45,32 +44,30 @@ const LoginPhone = (props) => {
                     url: `getSms?phone=${user_phone}`
                 })
                 console.log(response)
-                smsCode.value = response.data
+
             } catch (err) {
                 console.log(err)
+                form.smsCode = err.data
             }
         }
 
 
     }
     //登录
-    const onFinish =async  (values) => {
-      try {
-          const response = await service({
-              url:"PhoneForLogin",
-              method:"POST",
-              data:{
-                  phone:values.user_phone,
-                  smsCode:values.smsCode
-              }
-          })
-          dispatch(SetToken(response.data.token))
-          message.success("登录成功", 0.5, () => {
-              navigate("/", {replace: true})
-          })
-      }catch(error){
-          message.error(error.msg)
-      }
+    const onFinish = async (values) => {
+        try {
+            const response = await service({
+                url: "PhoneForLogin", method: "POST", data: {
+                    phone: values.user_phone, smsCode: values.smsCode
+                }
+            })
+            dispatch(SetToken(response.data.token))
+            message.success("登录成功", 0.5, () => {
+                navigate("/", {replace: true})
+            })
+        } catch (error) {
+            message.error(error.msg)
+        }
     };
     return (<Form
         name="normal_login"
@@ -119,8 +116,8 @@ const LoginPhone = (props) => {
                 </Col>
             </Row>
         </Form.Item>
-        <Form.Item className={"float-left pr-2 text-orange-800"}>
-            验证即登录，未注册将自动创建百度帐号
+        <Form.Item className={"float-left pr-2 text-[#858585]"}>
+            验证即登录，未注册将自动创建帐号
         </Form.Item>
 
         <Form.Item className={"flex justify-center w-full"}>
