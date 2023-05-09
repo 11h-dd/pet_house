@@ -1,10 +1,16 @@
 import React from 'react';
 import Layout from "../Layout";
+import Banner from "../../components/Banner";
+import MainContent from "../../components/MainContent";
+
 
 const Home = (props) => {
     return (
             <Layout>
-                你好
+                <Banner></Banner>
+                <main>
+                    <MainContent></MainContent>
+                </main>
             </Layout>
     );
 };

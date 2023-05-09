@@ -4,8 +4,8 @@ import {Button, Input, message} from "antd";
 import {LockOutlined, UserOutlined, PhoneOutlined, CodepenOutlined} from "@ant-design/icons";
 import service from "../../../requests/request";
 import {trimAll} from "../../../utils/Strings/trims";
-import {SetToken} from "../../../store/features/UserSlice";
 import {useDispatch} from "react-redux";
+import {getStoreToUserToken} from "../../../utils/stroages";
 
 
 function RegisterInput(props) {
@@ -28,7 +28,7 @@ function RegisterInput(props) {
             }
         })
         if(response.status===200) {
-            dispatch(SetToken(response.data.token))
+            getStoreToUserToken(dispatch,response)
             message.success("注册成功",0.5,() => {
                 navigate("/",{replace:true})
             })

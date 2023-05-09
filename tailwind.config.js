@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       backgroundImage:{
         "Animal-patten":"url('../../assets/images/Animal3.webp')",
-        "dog-patten":"url('../../assets/images/dog1.jpg')"
+        "dog-patten":"url('../../assets/images/dog1.jpg')",
+        "banners":"url('../../assets/images/banners1.webp')"
       }
     },
 

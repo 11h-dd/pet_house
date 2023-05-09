@@ -2,15 +2,15 @@ import React from 'react';
 import "./home.css"
 const Footer = (props) => {
     return (
-        <div className="footer">
-            <div className="footer_item">
+        <div className="footer mt-3 ">
+            <div className="footer_item container pt-[5rem]">
                 <div className="item">
                     宠物服务
                     <ul>
                         <li>宠物寄养</li>
                         <li>宠物保姆</li>
                         <li>宠物日托</li>
-                        <li>宠物医疗</li>
+                        <li>宠物护理</li>
                     </ul>
                 </div>
                 <div>

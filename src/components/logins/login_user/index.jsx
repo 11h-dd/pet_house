@@ -5,23 +5,11 @@ import {Button, Form, Input, message} from 'antd';
 import {Link} from "react-router-dom";
 import service from "../../../requests/request";
 import {useDispatch} from "react-redux";
-import {SetToken} from "../../../store/features/UserSlice";
 import {useNavigate} from "react-router-dom";
 import {Message} from "../../../utils/MessageGlobal";
 import Register from "../../register";
-import * as PropTypes from "prop-types";
+import {getStoreToUserToken} from "../../../utils/stroages";
 
-function Routes(props) {
-    return null;
-}
-
-Routes.propTypes = {
-    path: PropTypes.string, element: PropTypes.element
-};
-
-function Outlet() {
-    return null;
-}
 
 const LoginUser = (props) => {
     const navigate = useNavigate()
@@ -36,7 +24,8 @@ const LoginUser = (props) => {
             })
             //将token保存起来
             if (response.status === 200) {
-                dispatch(SetToken(response.data.token))
+                //保存
+                getStoreToUserToken(dispatch,response)
                 message.success("登录成功", 0.5, () => {
                     navigate("/", {replace: true})
                 })
@@ -60,7 +49,6 @@ const LoginUser = (props) => {
         }}
         onFinish={onFinish}
     >
-        <Outlet/>
         {/*<Routes path="/register" element={<Register open={open} onClose={onClose} />} />*/}
         <Register open={open} onClose={onClose}/>
         <Form.Item
@@ -97,7 +85,7 @@ const LoginUser = (props) => {
 
 
         <Form.Item className={"float-right pr-2"}>
-            <Link className="login-form-forgot text-[#5260d7] hover:text-[#222222]" href="">
+            <Link className="login-form-forgot text-[#5260d7] hover:text-[#222222]" href="" to={"/forPass"}>
                 忘记密码?
             </Link>
         </Form.Item>

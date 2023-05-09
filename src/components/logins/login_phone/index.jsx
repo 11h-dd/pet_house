@@ -4,9 +4,9 @@ import {
 } from 'antd';
 import "./index.module.css"
 import service from "../../../requests/request";
-import {SetToken} from "../../../store/features/UserSlice";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {getStoreToUserToken} from "../../../utils/stroages";
 
 const LoginPhone = (props) => {
     const dispatch = useDispatch()
@@ -61,7 +61,7 @@ const LoginPhone = (props) => {
                     phone: values.user_phone, smsCode: values.smsCode
                 }
             })
-            dispatch(SetToken(response.data.token))
+            getStoreToUserToken(dispatch,response)
             message.success("登录成功", 0.5, () => {
                 navigate("/", {replace: true})
             })

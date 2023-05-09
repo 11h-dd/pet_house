@@ -1,5 +1,9 @@
 .headers {
-    @apply w-full bg-amber-500 h-14
+    @apply w-full bg-[#ffffff] h-[4.5rem]
 }
-.header_content {
+/*.header_content {*/
+/*    @apply */
+/*}*/
+.active {
+    @apply text-[#f96014]
 }

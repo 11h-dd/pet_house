@@ -2,17 +2,18 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     user:{
-        username:"",
-        photo:"",
-    },
-    token: ""
+        username: "", photo: ""
+    }, token: ""
 }
 export const userConfigSlice = createSlice({
     name: "user", initialState, reducers: {
         //保存token
         SetToken: (state, payload) => {
             state.token = payload.payload
-        },
+        }, SetUserAndPhoto: (state, payload) => {
+            state.user.username = payload.payload.username
+            state.user.photo = payload.payload.photo
+        }
     }
 
 })
@@ -21,4 +22,4 @@ export const userConfigSlice = createSlice({
 //
 // })
 export default userConfigSlice.reducer
-export const {SetToken} = userConfigSlice.actions
+export const {SetToken, SetUserAndPhoto} = userConfigSlice.actions

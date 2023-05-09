@@ -1,0 +1,15 @@
+.banners {
+    @apply h-full w-1/2  float-right bg-banners bg-no-repeat bg-center bg-cover
+}
+.animalsTitles {
+    @apply h-full w-1/2 float-left
+}
+.left {
+    @apply w-[500px] h-[700px]  mt-32
+}
+.left h1 {
+    @apply text-6xl leading-[2.5rem] text-[#3d282c] mb-12
+}
+.left p {
+    @apply text-[#5c5658] mb-6
+}
