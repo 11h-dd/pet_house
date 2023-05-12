@@ -1,0 +1,8 @@
+.lieul {
+ @apply flex flex-wrap justify-between mb-2
+}
+.lieli{
+    @apply w-[290px] h-[400px]  mt-2 rounded-lg
+    border border-current border-solid mr-1
+
+}
