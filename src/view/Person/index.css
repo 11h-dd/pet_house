@@ -1,0 +1,15 @@
+.fool {
+    @apply w-full h-[100vh] bg-[#f9f9fa] flex justify-around pl-[20rem] pr-[20rem]
+}
+
+.person_left {
+    @apply w-[200px] h-[700px] bg-[#ffffff] rounded-2xl mr-8
+}
+
+.person_center {
+    @apply w-[700px] h-[800px] bg-[#ffffff] rounded-2xl mr-8
+}
+
+.person_right {
+    @apply w-[337px] h-[500px] bg-[#ffffff]  rounded-2xl
+}

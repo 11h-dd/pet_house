@@ -20,8 +20,6 @@ const MainContent = (props) => {
     useEffect(() => {
         myWoW.init()
     }, [])
-    //                铲屎官
-    //                 喂养员
     return (<>
         <div className={"text-center text-3xl "}>
             <div className={"h-[30rem] bg-[#f2f3f5]"}>

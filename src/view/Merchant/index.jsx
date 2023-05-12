@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Layout from "../Layout";
 import CharRegister from "../../components/CharRegister";
+import {myWoW} from "../../utils/myWow";
 
 //Start
 // 我是成为商家页面
@@ -47,6 +48,9 @@ import CharRegister from "../../components/CharRegister";
 
 
 const Merchant = (props) => {
+    useEffect(() => {
+        myWoW.init()
+    },[])
     return (<div>
         <Layout>
             <div className={"h-[500px] bg-amber-600 relative"}>
@@ -66,9 +70,9 @@ const Merchant = (props) => {
             </div>
             <div className={"container"}>
                 {/*头部*/}
-                <h1 className={"text-[2.6rem] font-bold mt-[40px] mb-[40px] text-center"}>完成三个步骤提供服务</h1>
+                <h1 className={" text-[2.6rem] font-bold mt-[40px] mb-[40px] text-center "}>完成三个步骤提供服务</h1>
                 {/*选择部分*/}
-                <div className={"mb-[70px]"}>
+                <div className={"mb-[70px] "}>
                     <ul className={"flex items-center"}>
                         <li className={"w-1/3 text-center p-1 "}>
                             <div className={"ml-[180px] rounded-full border-2 border-[#212529] border-solid w-[30px]"}>
@@ -107,7 +111,7 @@ const Merchant = (props) => {
                 </div>
                 {/*列表*/}
                 <div className={"text-[18px]"}>
-                    <div>
+                    <div className={"wow animate__fadeInLeft"}>
                         <div className={" h-[193px] border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
                             <ul className={"list-disc list-inside"}>
                                 <b className={"pt-1"}>作为宠物寄养商家的优势</b>
@@ -117,10 +121,10 @@ const Merchant = (props) => {
                             </ul>
                         </div>
                     </div>
-                    <div className={"flex h-[193px]]"}>
+                    <div className={"flex h-[193px]] wow animate__fadeInRight"}>
                         <img className={"h-[193px]"} src="https://storage.googleapis.com/petbacker/images/cms/icons/pet-sitter-job-dog-3.png" alt=""/>
-                        <div className={"border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
-                            <ul className={"list-disc list-inside"}>
+                        <div className={"  border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
+                            <ul className={"list-disc list-inside "}>
                                 <b className={"pt-1"}>一旦成为宠物寄养商家您必须</b>
                                 <li>轻松管理:我们将全权处理所有客户的订单</li>
                                 <li>市场行情:通过我们的广告系统,附近的人会更快地找到你</li>
@@ -128,7 +132,7 @@ const Merchant = (props) => {
                             </ul>
                         </div>
                     </div>
-                    <div className={"flex"}>
+                    <div className={"flex wow animate__fadeInLeft  "}>
                         <div className={"border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
                             <ul className={"list-disc list-inside"}>
                                 <b className={"pt-1"}>我们鼓励宠物寄养</b>
@@ -138,7 +142,7 @@ const Merchant = (props) => {
                         </div>
                         <img className={"h-[193px]"}  src="https://storage.googleapis.com/petbacker/images/cms/icons/pet-sitter-job-dog-2.png" alt=""/>
                     </div>
-                    <div className={"flex"}>
+                    <div className={"flex wow animate__fadeInRight"}>
                         <img className={"h-[193px]"} src="https://storage.googleapis.com/petbacker/images/cms/icons/pet-sitter-job-dog-3.png" alt=""/>
                         <div className={"border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
                             <ul className={"list-disc list-inside"}>
@@ -149,7 +153,7 @@ const Merchant = (props) => {
                             </ul>
                         </div>
                     </div>
-                    <div className={"flex"}>
+                    <div className={"flex wow animate__fadeInLeft"}>
                         <div className={"border-solid border-inherit border border-[#e0e4e7] p-[30px] w-[70%] mb-2"}>
                             <ul className={"list-disc list-inside"}>
                                 <b className={"pt-1"}>同样重要的是，要知道</b>
@@ -162,12 +166,13 @@ const Merchant = (props) => {
                     </div>
                 </div>
                 {/*表单设置 */}
-                <h1 className={"text-[2.6rem] font-bold mt-[40px] mb-[40px] text-center"}>填入信息成为宠物寄养商家</h1>
-                <div className={"p-8 container border  border-inherit border bg-[#f8fafc] rounded-3xl  shadow-xl"}>
-                <CharRegister/>
+                <h1 className={" wow animate__fadeInLeft text-[2.6rem] font-bold mt-[40px] mb-[40px] text-center"}>填入信息成为宠物寄养商家</h1>
+                <div className={"wow animate__fadeInLeft p-8 container border  border-inherit border bg-[#f8fafc] rounded-3xl  shadow-xl"}>
+               <div className={"wow animate__fadeInLeft "}>
+                   <CharRegister/>
+               </div>
                 </div>
                 <div className={"mb-[80px]"}>
-
                 </div>
 
             </div>
