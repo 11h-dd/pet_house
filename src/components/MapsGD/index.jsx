@@ -71,7 +71,7 @@ const MapsGd = (props) => {
         maps.add([marker]);
     }, [])
     return (<>
-            <div id={"maps"} style={{height: "400px"}}>
+            <div id={"maps"} style={{height: "500px"}}>
             </div>
             <div id="tip">
                 <input type="text" id="keyword" name="keyword" placeholder="请输入关键字"

@@ -167,7 +167,7 @@ const Merchant = (props) => {
                 </div>
                 {/*表单设置 */}
                 <h1 className={" wow animate__fadeInLeft text-[2.6rem] font-bold mt-[40px] mb-[40px] text-center"}>填入信息成为宠物寄养商家</h1>
-                <div className={"wow animate__fadeInLeft p-8 container border  border-inherit border bg-[#f8fafc] rounded-3xl  shadow-xl"}>
+                <div className={"wow animate__fadeInLeft p-8 container  border-inherit border bg-[#f8fafc] rounded-3xl  shadow-xl"}>
                <div className={"wow animate__fadeInLeft "}>
                    <CharRegister/>
                </div>

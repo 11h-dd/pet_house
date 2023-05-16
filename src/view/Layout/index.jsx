@@ -7,7 +7,9 @@ function Layout(props) {
     return (
         <div>
             <Header></Header>
-            {props.children}
+           <div className={"mt-[4.5rem]"}>
+               {props.children}
+           </div>
             <Footer></Footer>
             <FloatButton.BackTop type={"default"} className={"hover:bg-[#f0f0f0]"}/>
 

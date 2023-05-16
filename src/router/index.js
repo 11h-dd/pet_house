@@ -9,6 +9,7 @@ import PetClinic from "../view/petClinic";
 import AdoptionCommunity from "../view/AdoptionCommunity";
 import CollcaoTion from "../view/collcaotion";
 import Person from "../view/Person";
+import EntrustDetail from "../view/entrust/view/Detail";
 
 export const router = createBrowserRouter([{
     path: "/", element: <Home/>,
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([{
 }, {
     path: "forPass", element: <ForgetPass/>
 }, {
-    path: "entrust", name: "寄养页面", element: <Entrust/>
+    path: "entrust", name: "寄养页面", element: <Entrust/>,
 }, {
     path: "merchant", name: "成为商家", element: <Merchant/>
 }, {
@@ -32,6 +33,8 @@ export const router = createBrowserRouter([{
     path:"person",
     name:"个人主页",
     element: <Person></Person>
+},{
+    path:"entrust/details/:id",element:<EntrustDetail/>,name:"我要寄样详情页"
 }
 
 ])

@@ -1,0 +1,12 @@
+.active1 {
+    @apply border-2 border-[#6366f1]
+}
+.list {
+    @apply  border-2 border-solid  h-full mr-1
+}
+.LiImgs {
+    @apply w-[490px] h-[367px] mb-[10px] mr-[10px]
+}
+.Imgs {
+    @apply w-full h-full
+}

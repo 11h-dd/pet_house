@@ -1,8 +1,13 @@
 .lieul {
- @apply flex flex-wrap justify-between mb-2
+ @apply flex flex-wrap justify-start  mb-2 h-[816px]
 }
 .lieli{
     @apply w-[290px] h-[400px]  mt-2 rounded-lg
-    border border-current border-solid mr-1
+    hover:scale-105
+    transition duration-150 ease-in-out
+     bg-[#ffffff]
+    shadow-xl
+    mr-[10px]
+    overflow-hidden
 
 }

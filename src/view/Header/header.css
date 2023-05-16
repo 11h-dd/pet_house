@@ -1,5 +1,5 @@
 .headers {
-    @apply w-full bg-[#ffffff] h-[4.5rem]
+    @apply w-full bg-[#ffffff] h-[4.5rem] fixed top-0 z-10 shadow-lg
 }
 /*.header_content {*/
 /*    @apply */

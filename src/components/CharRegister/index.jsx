@@ -68,7 +68,7 @@ const CharRegister = (props) => {
                 url: "user/Char/join ", method: "post", data: formData
             })
             console.log(response)
-            message.success("创建成功")
+            message.success("您已成为商家,请在个人页面添加具体商品费用及其信息!!",4)
 
         } catch (err) {
             console.log(err)
