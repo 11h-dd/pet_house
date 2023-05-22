@@ -13,6 +13,19 @@ export const userConfigSlice = createSlice({
         }, SetUserAndPhoto: (state, payload) => {
             state.user.username = payload.payload.username
             state.user.photo = payload.payload.photo
+        },
+        RemoveToken:(state) => {
+            state.token = ""
+            state.user.username = ""
+            state.user.photo = ""
+        },
+        //修改头像
+        ChangePhoto:(state,action) => {
+            state.user.photo = action.payload
+        },
+        //修改用户名
+        ChangeUsersUsernames:(state,action) => {
+            state.user.username = action.payload
         }
     }
 
@@ -22,4 +35,4 @@ export const userConfigSlice = createSlice({
 //
 // })
 export default userConfigSlice.reducer
-export const {SetToken, SetUserAndPhoto} = userConfigSlice.actions
+export const {SetToken, SetUserAndPhoto,RemoveToken,ChangePhoto,ChangeUsersUsernames} = userConfigSlice.actions

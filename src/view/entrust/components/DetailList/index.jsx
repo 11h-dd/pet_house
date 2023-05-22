@@ -4,8 +4,7 @@ import MyRate from "../../../../components/MyRate";
 
 const DetailList = ({res}) => {
     return (<div>
-        <div>
-            <img src={res.char_avatar} className={"w-full"} alt=""/>
+        <div className={"h-[304px]"} style={{backgroundImage:`url(${res.char_avatar})`,backgroundSize:"cover", backgroundRepeat:"no-repeat",backgroundPosition:"50%"}}>
         </div>
         <div className={"h-[100px] p-[5px]"}>
             <div className={"flex items-baseline mb-[8px]"}>

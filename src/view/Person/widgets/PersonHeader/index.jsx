@@ -12,7 +12,7 @@ const PersonHeader = () => {
         return <Navigate to={"/"}></Navigate>
     }
     return (
-            <div className={"w-full h-[60px] bg-[#f9f9fa] flex justify-between pl-1 pr-5"}>
+            <div className={"w-full h-[60px] bg-[#f9f9fa] fixed top-0  flex justify-between pl-1 pr-5"}>
                 <div className={"flex items-center"}>
                     <Link to={"/"}> <img src={animal} alt="宠物寄养" className={"w-[7rem] h-[5rem]"}/></Link>
                     <span>

@@ -17,7 +17,9 @@ const DetailHeader = (props) => {
                 <div className={""}>
                     {!token? <Button>
                         <Link to={"/loginAndRegister"}>注册/登录</Link>
-                    </Button>:<span>我的收藏</span>}
+                    </Button>:<span>
+                        <Link to={"/person/collect"}>我的收藏</Link>
+                    </span>}
                 </div>
             </div>
         </div>

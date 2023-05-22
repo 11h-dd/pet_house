@@ -1,0 +1,6 @@
+.lis {
+    @apply text-[14px] border-solid   rounded-md border h-[80px] overflow-hidden mb-[10px]
+}
+.lis img{
+    @apply w-[100px] h-[80px] float-left mr-[20px]
+}

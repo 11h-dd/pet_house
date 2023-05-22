@@ -1,24 +1,25 @@
 import React, {useEffect} from 'react';
 import "./header.css"
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {Avatar, Button, Dropdown, Space} from "antd";
+import {Avatar, Button, Dropdown, message, Space} from "antd";
 import service from "../../requests/request";
 import {getTokenZero} from "../../utils/tokenZero";
 import animal from "../../assets/images/Animal.png"
+import {RemoveToken} from "../../store/features/UserSlice";
 
 const items = [{
-    label: <Link to={"/person"}>
-        个人主页
-    </Link>, key: "1"
+    label:  "个人主页"
+   , key: "1"
 }, {label: "账号设置", key: "2"}, {label: "意见反馈", key: "3"}, {
     type: 'divider',
-},{
+}, {
     label: '退出登录', key: '4', danger: true,
 },];
 
 const Header = (props) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     //判断有无token
     const username = useSelector(state => state.userConfigSlice.user.username)
     const photo = useSelector(state => state.userConfigSlice.user.photo)
@@ -38,7 +39,13 @@ const Header = (props) => {
         })()
     })
     const onClick = (tags) => {
-        console.log(tags)
+        if(tags.key === "1") {
+            navigate("/person/collect")
+        }
+        if (tags.key === "4") {
+            dispatch(RemoveToken())
+            message.success("退出成功")
+        }
     };
     const renderUsername = () => {
 
@@ -70,7 +77,9 @@ const Header = (props) => {
     }
     return (<div className="headers con flex">
         <div className={"header_content container flex justify-between items-center text-[19px]"}>
-            <ul className={"flex w-[50rem] justify-around items-center"}>
+            <ul className={"flex w-[50rem] justify-around items-center"} onClick={() => {
+                document.body.scrollTop = document.documentElement.scrollTop = 0
+            }}>
                 <li>
                     <Link to={"/"}> <img src={animal} alt="宠物寄养" className={"w-[7rem] h-[5rem]"}/></Link>
                 </li>

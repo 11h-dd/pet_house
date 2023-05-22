@@ -4,7 +4,6 @@ import {store} from "../store";
 const service = axios.create({
     baseURL: "http://192.168.229.129:10001/"
 })
-// const loading  = (<Spin/>)
 
 // 请求拦截
 service.interceptors.request.use(config => {

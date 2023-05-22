@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./index.css"
 import PersonHeader from "./widgets/PersonHeader";
+import request from "../../requests/request";
+import GetChar from "./widgets/getChar";
+import GetUser from "./widgets/getUser";
 
 const Person = () => {
+    const [IsChar,SetIsChar] = useState(0)
+         const getInfo = async ()=> {
+             request({
+                 url:"/user/person",
+                 method:"GET",
 
+             }).then(res => {
+                 SetIsChar(res.data.relation)
+             })
+         }
+    useEffect(() => {getInfo()},[])
     return (<>
             <PersonHeader></PersonHeader>
-            <div className={"fool"}>
-                <div className={"person_left"}>左侧</div>
-                <div className={"person_center"}>中间</div>
-                <div className={"person_right"}>右侧</div>
-            </div>
+            {IsChar?<GetChar/>:<GetUser/>}
         </>
 
     );

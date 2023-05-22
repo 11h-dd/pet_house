@@ -15,8 +15,7 @@ const Stores = (props) => {
             主人手机:
             主人姓名:
             何时结束:
-            选择商家:
-
+            {props.id}
         </div>
     );
 };

@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {PlusOutlined, UploadOutlined} from '@ant-design/icons';
+import { UploadOutlined} from '@ant-design/icons';
 import {
     Button, Checkbox, Col, Form, Input, message, Row, Upload
 } from 'antd';
 import CharAddress from "./charAddress";
-import MapsGd from "../MapsGD";
 import request from "../../requests/request";
 
 const normFile = (e) => {
@@ -74,14 +73,6 @@ const CharRegister = (props) => {
             console.log(err)
         }
         form.resetFields()
-        // values.charPhone = ""
-        // values.charName = ""
-        // values.charInfo = ""
-        // values.charUsername = ""
-        // values.charAddressText  = ""
-        // values.charAddress= []
-        // values.charAddress = []
-        // values.agreement = false
     };
     return (<Form
         {...formItemLayout}

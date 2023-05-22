@@ -1,15 +1,25 @@
 .fool {
-    @apply w-full h-[100vh] bg-[#f9f9fa] flex justify-around pl-[20rem] pr-[20rem]
+    @apply w-full h-[100vh] bg-[#f9f9fa] flex justify-around pl-[20rem] pr-[20rem] pt-[60px]
 }
 
 .person_left {
-    @apply w-[200px] h-[700px] bg-[#ffffff] rounded-2xl mr-8
+    @apply w-[210px] h-[700px] bg-[#ffffff] rounded-2xl mr-8
 }
 
 .person_center {
-    @apply w-[700px] h-[800px] bg-[#ffffff] rounded-2xl mr-8
+    @apply w-[509px] h-[800px] bg-[#ffffff] rounded-2xl mr-8
 }
 
 .person_right {
-    @apply w-[337px] h-[500px] bg-[#ffffff]  rounded-2xl
+    @apply w-[301px] h-[500px] bg-[#ffffff]  rounded-2xl
+}
+.PersonActive {
+    @apply bg-[#EDF0FD] text-[#315efb]
+
+}
+.PersonListActive {
+    @apply bg-[#EDF0FD] text-[#315efb]
+}
+.PersonList {
+    @apply w-[160px] h-[32px] text-center leading-[32px] mb-[12px] rounded-[6px] text-[14px] overflow-hidden
 }

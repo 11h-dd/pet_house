@@ -22,7 +22,7 @@ const Visit = (props) => {
                     备注:
                     服务价格:
                 </div>
-            {/*<MapsGd/>*/}
+            {props.id}
         </div>
     );
 };
